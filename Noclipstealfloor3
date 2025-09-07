@@ -1,0 +1,35 @@
+epeat
+    wait()
+until game:IsLoaded()
+local t = 0.7
+
+local function trans()
+    task.wait(3)
+    for i, v in pairs(workspace.Plots:GetDescendants()) do
+        if
+            v.Name == 'structure base home'
+            and v.Size == Vector3.new(45, 16.999996185302734, 2)
+        then
+            v.Transparency = t
+        elseif
+            v.Name == 'structure base home'
+            and v.Size == Vector3.new(45, 44.999996185302734, 2)
+        then
+            v.Transparency = t
+        elseif v.Name == 'Decoration' and v.Parent.Name == 'Decorations' then
+            v.Transparency = t
+            v.Parent.Part.Transparency = t
+        elseif v.Name == 'Main' and v.Parent.Name == 'Claim' then
+            v.Transparency = t
+        elseif
+            v.Name == 'structure base home'
+            and v.Size == Vector3.new(31, 10.999996185302734, 2)
+        then
+            v.Transparency = t
+        end
+    end
+end
+
+trans()
+
+game:GetService('Players').PlayerAdded:Connect(trans)
